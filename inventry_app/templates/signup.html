@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'css/vendors/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <link rel="stylesheet" href="{% static 'css/vendors/mdi/css/materialdesignicons.min.css' %}">
+
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .login-form {
+      margin-left: 35rem;
+      width: 25rem;
+      margin-top: 100px;
+      background-color: rgba(0, 0, 0, .2);
+      padding-left: 2rem;
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container-fluid bg_image">
+    <div class="row justify-content-around">
+      <div class="col-md-5 login-form">
+        <h2 class="mb-3 p-3">Register</h2>
+        <form id="signup_form">
+          <div class="form-group">
+            <input type="text" class="form-control border_radius" name="username" id="name" placeholder=" Username" autocomplete="off"
+              required>
+          </div>
+
+          <div class="form-group mt-4 position-relative">
+            <input type="email" class="form-control border_radius" name="email" id="email" placeholder=" Email"
+              autocomplete="off" required>
+          </div>
+
+          <div class="form-group mt-4 position-relative">
+              <input type="password" class="form-control border_radius" name="password"
+                id="password" placeholder="Password" autocomplete="off" required>
+
+          </div>
+
+          <div class="form-group mt-4 position-relative">
+            <input type="password" class="form-control border_radius" name="confirm_password"
+              id="confirm_password" placeholder="Confirm Password" autocomplete="off" required>
+          </div>
+          <div class="mt-4">
+            <button type="submit" class="btn add_card btn-md px-5 mb-3 shadow text-light col-12 border_radius"
+              style="font-weight:600;letter-spacing: 0px;">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies (jQuery, Popper.js) -->
+
+  <script type="application/javascript" src="{% static 'js/vendors/jquery.min.js' %}"></script>
+  <script type="application/javascript" src="{% static 'js/vendors/popper.min.js' %}"></script>
+  <script type="application/javascript" src="{% static 'js/vendors/bootstrap.min.js' %}"></script>
+  <script type="application/javascript" src="{% static 'js/vendors/sweetalert2@10.js' %}"></script>
+  <script type="application/javascript" src="{%static 'js/login.js'%}"></script>
+</body>
+
+</html>

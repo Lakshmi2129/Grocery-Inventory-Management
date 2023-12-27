@@ -1,0 +1,35 @@
+.border_radius {
+  border-radius: 5rem;
+}
+
+.login-form {
+  border-radius: 1rem;
+  margin-left: 35rem;
+  width: 25rem;
+  margin-top: 100px;
+  background-color: rgba(0, 0, 0, .2);
+  padding-left: 2rem;
+
+}
+
+.add_card {
+  background: linear-gradient(0deg, rgba(53, 72, 139, 1) 0%, rgba(15, 33, 105, 1) 67%, rgba(27, 27, 89, 1) 100%);
+
+  font-weight: 500;
+
+}
+
+.text-own-color {
+  color: rgba(15, 33, 89, 1);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.bg_image {
+  border-radius: 5px;
+  background-image: url(../images/signin.jpg);
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-size: cover;
+  z-index: 1;
+}

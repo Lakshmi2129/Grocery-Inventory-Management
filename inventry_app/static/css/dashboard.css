@@ -1,0 +1,135 @@
+:root {
+  --bg-gradient: linear-gradient(0deg, rgba(53, 72, 139, 1) 0%, rgba(15, 33, 105, 1) 67%, rgba(27, 27, 89, 1) 100%);
+}
+
+.container-fluid {
+  background-image: url(../images/dashboard.avif);
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100wh;
+  background-size: cover;
+  z-index: 1;
+}
+
+.add_card {
+  background: var(--bg-gradient);
+  font-weight: 500;
+
+}
+
+table.dataTable {
+  border-collapse: collapse !important;
+  width: 100% !important;
+  border: 1px solid #ddd !important;
+  border-radius: 10px !important;
+}
+
+table.dataTable th,
+table.dataTable td {
+  border: 1px solid #ddd !important;
+  padding: 8px !important;
+  border-radius: 10px !;
+
+}
+
+#lt_logo{
+  left: 0px;
+  position: absolute;
+  top: -16px;
+  width: 100px;
+  height: 100px;
+
+}
+
+.bg_gradient_own {
+  border-radius: 15px;
+  height: 185px;
+  background: var(--bg-gradient);
+}
+
+
+.navigation {
+  background-color: #adb5bd;
+  position: sticky;
+  top: 0;
+  height: 70px;
+  justify-content: space-between;
+  display: flex;
+  margin-right: 0px;
+  padding: 10px;
+  z-index: 100;
+  transition: 0s;
+}
+
+.navigation-icon i {
+  font-size: 27px;
+  margin: 0px 10px;
+}
+
+.navigation-icon {
+  padding-right: 10px;
+  margin-bottom: 5px;
+}
+
+.navigation-icon ul {
+  list-style: none;
+  display: flex;
+  cursor: pointer;
+}
+
+
+.user-profile{
+  height: 40px;
+  width:40px;
+  border-radius: 50%;
+  margin-top: 10px;
+
+}
+
+.user-name i{
+  position: relative;
+  right:10px;
+
+}
+
+
+.emp-user-profile{
+  justify-content: center;
+
+}
+.user-profile-content{
+  justify-content: center;
+  display: flex;
+  padding: 0.5rem;
+  background-color: white;
+  width: 130px;
+  height: auto;
+  top: 65px;
+  right: 13px;
+  position: absolute;
+  opacity: 1;
+  z-index: 100;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.user-nav{
+
+  font-size: 13px;
+  margin-left: -80px;
+
+}
+.user-nav i{
+  padding: 0px 7px;
+  font-size: 12px;
+}
+.user-nav li{
+  padding-bottom: 0px 5px;
+
+}
+.user-nav li a{
+  width: 100%;
+  display: inline-block;
+  font-size: 15px;
+  text-decoration: none;
+}

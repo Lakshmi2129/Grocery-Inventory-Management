@@ -1,0 +1,247 @@
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <title>Grocery Inventory</title>
+  <link rel="stylesheet" href="{% static 'css/vendors/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/vendors/mdi/css/materialdesignicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+  <link rel="stylesheet" href="{% static 'css/vendors/datatables.min.css' %}" />
+
+</head>
+
+<!-- Navbar -->
+
+
+<div class="navigation" style="z-index: 111;">
+  <div class="d-flex">
+    <div id="menu-icon"><i class="mdi mdi-sort-variant menu-icon"></i></div>
+    <div class="pl-4 lt_logo">
+      <img class='' src="static/images/logo.png" alt="" srcset="" id="lt_logo">
+    </div>
+  </div>
+  <h1 class="text-center">Grocery Inventory Management</h1>
+
+
+
+  <div class="navigation-icon">
+    <ul>
+      <li class="user-link">
+        <div class="d-flex" id="user-name">
+          <div>
+            <img class="user-profile m-0" onclick="logout()" src="static/images/manager.png" alt="">
+          </div>
+
+          <div class="user-profile-content login" style="display:none">
+
+            <div class="emp-user-profile d-block">
+              <div class="user-nav">
+                <ul class="d-block">
+                  <li class="nav-item">
+                    <ul class="d-block">
+                      <li><a href="/login" class="text-dark fw-bold"><i
+                            class="mdi mdi-logout"></i>Logout</a></li>
+                    </ul>
+                  </li>
+              
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </li>
+
+
+    </ul>
+
+  </div>
+</div>
+
+
+<!-- Cards and Reports -->
+
+<div class="container-fluid">
+  <!-- Button trigger modal -->
+  <div class="row">
+
+    <div class="col-12 col-md-6 mt-3 ">
+      <div class="cards p-4 bg_gradient_own">
+
+        <div class="d-flex justify-content-between">
+          <div class="">
+            <h4 class="bolder text-light pr-5">Items Count </h4>
+
+          </div>
+        </div>
+
+        <div class="row py-2 mt-4 text-center">
+          <div class="col-12">
+            <h5 class="bolder text-white text-center" id="item_count">-</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 mt-3 ">
+      <div class="cards p-4 bg_gradient_own">
+
+        <div class="d-flex justify-content-between">
+          <div class="">
+            <h4 class="bolder text-light pr-5">Total Quantity & Price </h4>
+
+          </div>
+        </div>
+
+        <div class="row py-2 mt-4 text-center">
+          <div class="col-6 border-right">
+            <h5 class="bolder text-white text-center">Quantity</h5>
+            <h5 class="bolder text-white text-center" id="quantity_count">-</h5>
+          </div>
+          <div class="col-6">
+            <h5 class="bolder text-white text-center">Price</h5>
+            <h5 class="bolder text-white text-center" id="price_count">-</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="d-flex justify-content-end px-3 mt-3">
+    <button type="button" class=" btn add_card text-white text-center btn-ms" data-bs-toggle="modal"
+      data-bs-target="#add_grocery_modal">
+      Add Items
+    </button>
+
+  </div>
+
+
+  <div class="">
+    <table class="table text-white  mt-5 text-center mb-3" id="grocery_data_table">
+      <thead>
+        <tr>
+          <th>Item name</th>
+          <th>Quantity</th>
+          <th> Price </th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody class="mt-3" id="grocery_table">
+
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="add_grocery_modal" tabindex="-1" aria-labelledby="add_grocery_modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add Items</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="add_grocery_form">
+            <div class="form-group row py-2">
+              <label class="col-sm-3 col-form-label">
+                Item Name</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="name" autocomplete="off" required />
+              </div>
+            </div>
+
+            <div class="form-group row py-2">
+              <label class="col-sm-3 col-form-label">
+                Quantity</label>
+              <div class="col-sm-9">
+                <input type="number" class="form-control" name="quantity" autocomplete="off" required />
+              </div>
+            </div>
+
+            <div class="form-group row py-2">
+              <label class="col-sm-3 col-form-label">
+                Price</label>
+              <div class="col-sm-9">
+                <input type="number" class="form-control" name="price" autocomplete="off" required />
+              </div>
+            </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!--Edit modal-->
+  <div class="modal fade" id="edit_grocery_modal" tabindex="-1" role="dialog" aria-labelledby="edit_grocery_modal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Edit Items</h5>
+        </div>
+        <div class="modal-body">
+          <div>
+            <form id="edit_grocery_form">
+              <input type="hidden" class="edit_pk form-control" name="pk" />
+
+              <div class="form-group row py-2">
+                <label class="col-sm-3 col-form-label">
+                  Item Name</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control item_name" name="edit_name" autocomplete="off" readonly required />
+                </div>
+              </div>
+
+              <div class="form-group row py-2">
+                <label class="col-sm-3 col-form-label">
+                  Quantity</label>
+                <div class="col-sm-9">
+                  <input type="number" class="form-control item_quantity" name="edit_quantity" autocomplete="off" required />
+                </div>
+              </div>
+
+              <div class="form-group row py-2">
+                <label class="col-sm-3 col-form-label">
+                  Price</label>
+                <div class="col-sm-9">
+                  <input type="number" class="form-control item_price" name="edit_price" autocomplete="off" required />
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!--Edit End-->
+    </div>
+  </div>
+  <!--End Goal-->
+
+</div>
+
+<!-- Include Plugins -->
+<script type="application/javascript" src="{% static 'js/vendors/jquery.min.js' %}"></script>
+<script type="application/javascript" src="{% static 'js/vendors/popper.min.js' %}"></script>
+<script type="application/javascript" src="{% static 'js/vendors/bootstrap.min.js' %}"></script>
+<script type="application/javascript" src="{% static 'js/vendors/bootstrap.bundle.min.js' %}"></script>
+<script type="application/javascript" src="{% static 'js/vendors/datatables.min.js' %}"></script>
+<script type="application/javascript" src="{% static 'js/vendors/sweetalert2@10.js' %}"></script>
+<script type="application/javascript" src="{% static 'js/vendors/select2.min.js' %}"></script>
+<script type="application/javascript" src="{%static 'js/index.js'%}"></script>
+<script type="application/javascript" src="{%static 'js/login.js'%}"></script>
